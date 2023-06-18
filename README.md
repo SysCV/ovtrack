@@ -1,4 +1,4 @@
-# OVTrack: Open-Vocabulary Multiple Object Tracking 
+# OVTrack: Open-Vocabulary Multiple Object Tracking [CVPR 2023]
 
 ## Abstract
 
@@ -61,6 +61,7 @@ Please refer to [INSTALL.md](docs/INSTALL.md) for installation instructions.
 The repo is still under construction. This is an example usage.
 Please refer to [GET_STARTED.md](docs/GET_STARTED.md) for dataset preparation and running instructions.
 
+## Cite OVTrack
 
 ```
 @inproceedings{li2023ovtrack,
@@ -71,3 +72,8 @@ Please refer to [GET_STARTED.md](docs/GET_STARTED.md) for dataset preparation an
   year={2023}
 }
 ```
+
+## Acknowledgement
+- Thanks [TETA](https://github.com/SysCV/tet) for providing the evaluation code.
+- Thanks [DetPro](https://github.com/dyabel/detpro) for providing the pytorch reimplementation of VilD.
+- Thanks [RegionCLIP](https://github.com/microsoft/RegionCLIP) for providing the detection on TAO dataset.
