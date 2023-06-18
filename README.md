@@ -60,3 +60,14 @@ Please refer to [INSTALL.md](docs/INSTALL.md) for installation instructions.
 ## Usages
 The repo is still under construction. This is an example usage.
 Please refer to [GET_STARTED.md](docs/GET_STARTED.md) for dataset preparation and running instructions.
+
+
+```
+@inproceedings{li2023ovtrack,
+  title={OVTrack: Open-Vocabulary Multiple Object Tracking},
+  author={Li, Siyuan and Fischer, Tobias and Ke, Lei and Ding, Henghui and Danelljan, Martin and Yu, Fisher},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={5567--5577},
+  year={2023}
+}
+```
