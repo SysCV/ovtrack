@@ -1,0 +1,54 @@
+remove_ignored = false
+ignored_as_class = false
+
+[ignored_mapping]
+"other person" = "pedestrian"
+"other vehicle" = "car"
+"trailer" = "truck"
+
+[name_mapping]
+bike = "bicycle"
+caravan = "car"
+motor = "motorcycle"
+person = "pedestrian"
+van = "car"
+
+[scalabel]
+    [scalabel.imageSize]
+    height = 720
+    width = 1280
+
+    [[scalabel.attributes]]
+    name = "crowd"
+    type = "switch"
+    tag = "c"
+
+    [[scalabel.categories]]
+    name = "human"
+        [[scalabel.categories.subcategories]]
+        name = "pedestrian"
+
+        [[scalabel.categories.subcategories]]
+        name = "rider"
+
+    [[scalabel.categories]]
+    name = "vehicle"
+        [[scalabel.categories.subcategories]]
+            name = "car"
+
+        [[scalabel.categories.subcategories]]
+            name = "truck"
+
+        [[scalabel.categories.subcategories]]
+            name = "bus"
+
+        [[scalabel.categories.subcategories]]
+        name = "train"
+
+    [[scalabel.categories]]
+    name = "bike"
+        [[scalabel.categories.subcategories]]
+        name = "motorcycle"
+
+        [[scalabel.categories.subcategories]]
+        name = "bicycle"
