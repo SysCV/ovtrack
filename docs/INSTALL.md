@@ -12,5 +12,5 @@ Please install following packages.
 
 ### Install TETA
 
-Please refer to [TETA](../teta/README.md)
+Please refer to [TETA](https://github.com/SysCV/tet/tree/main/teta)
 
