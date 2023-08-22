@@ -10,7 +10,7 @@ from tqdm import tqdm
 def parse_args():
     parser = argparse.ArgumentParser(
         description='Make annotation files for TAO')
-    parser.add_argument('-t', '--teter-tao', help='path of TAO json file')
+    parser.add_argument('-t', '--tao', help='path of TAO json file')
     parser.add_argument(
         '--filter-classes',
         action='store_true',
