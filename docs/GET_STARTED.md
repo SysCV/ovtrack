@@ -56,6 +56,9 @@ python tools/convert_datasets/create_tao_v1.py data/tao/annotations/validation_o
 If you want to test on the test set split, please download the test set annotation from [here](https://drive.google.com/file/d/1Ug50Nrj0WDyAIpxZxedzz8nRQFMBeYZ7/view?usp=sharing)
 We generate TAO test v1 file from the BURST dataset. Thanks the authors for making the annotations available.
 
+c. During the training and inference, we use an additional file which save all class names: [lvis_classes_v1.txt](https://drive.google.com/file/d/1CzyggqLe4aeqmDEEN-aPgIFIqZcR-Dwj/view?usp=sharing).
+Please download it and put it in `${LVIS_PATH}/annotations/`.
+
 ## Run OVTrack
 This codebase is inherited from [mmdetection](https://github.com/open-mmlab/mmdetection).
 You can refer to the [offical instructions](https://github.com/open-mmlab/mmdetection/blob/master/docs/getting_started.md).
