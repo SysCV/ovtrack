@@ -9,6 +9,7 @@ Please install following packages.
 - [mmdetection == 2.23](https://github.com/open-mmlab/mmcv)
 - [CLIP](https://github.com/openai/CLIP)
 - [diffusers](https://github.com/huggingface/diffusers)
+- [tao](https://github.com/TAO-Dataset/tao/tree/master)
 
 ### Install TETA
 
