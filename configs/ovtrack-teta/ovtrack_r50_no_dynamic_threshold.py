@@ -1,7 +1,7 @@
 model = dict(
     type='OVTrack',
     freeze_detector=True,
-    method='ovtrack-tao',
+    method='ovtrack-teta',
     backbone=dict(
         type='ResNet',
         depth=50,
@@ -157,9 +157,9 @@ test_cfg = dict(
 
     rcnn=dict(
         score_thr=0.0001,
-        nms=dict(type='nms', iou_threshold=0.5),
-        max_per_img=300,
-        mask_thr_binary=0.5),
+        nms=dict(type='nms', iou_threshold=0.5, class_agnostic=True, split_thr=1000000),
+        max_per_img=50)
+
 )
 )
 
@@ -170,7 +170,6 @@ img_scale = (800, 1333)
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
-
 ]
 
 test_pipeline = [
@@ -201,7 +200,12 @@ data = dict(
     workers_per_gpu=3,
     persistent_workers=True,
     train=dict(
-            type=dataset_type,),
+        type=dataset_type,
+        classes='data/lvis/annotations/lvis_classes_v1.txt',
+        ann_file='data/lvis/annotations/lvis_ours.json',
+        img_prefix='data/lvis/train2017/',
+        ref_img_sampler=None,
+        pipeline=test_pipeline),
     val=dict(
         type=dataset_type,
         classes='data/lvis/annotations/lvis_classes_v1.txt',
@@ -231,8 +235,7 @@ lr_config = dict(
     step=[3, 5])
 total_epochs = 6
 load_from = 'saved_models/pretrained/clip_head.pth'
-
-evaluation = dict(metric=['track'], start=5, interval=1, resfile_path='/scratch/tmp/', use_tao_metric=True)
+evaluation = dict(metric=['track'], start=5, interval=1, resfile_path='/scratch/tmp/')
 
 checkpoint_config = dict(interval=1, create_symlink=False)
 log_config = dict(interval=50, hooks=[dict(type='TextLoggerHook')])

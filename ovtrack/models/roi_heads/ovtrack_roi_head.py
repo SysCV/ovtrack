@@ -30,10 +30,12 @@ class OVTrackRoIHead(StandardRoIHead):
         fix_bg=False,
         ensemble=True,
         custom_classes=False,
+        dynamic_rcnn_thre=True,
         *args,
         **kwargs
     ):
         super().__init__(*args, **kwargs)
+
 
         if track_head is not None:
             self.init_track_head(track_roi_extractor, track_head)
@@ -57,6 +59,7 @@ class OVTrackRoIHead(StandardRoIHead):
         self.fixed_lambda = fixed_lambda
         self.fix_bg = fix_bg
         self.custom_classes = custom_classes
+        self.dynamic_rcnn_thre = dynamic_rcnn_thre
         if custom_classes:
             self.fixed_lambda = 0.3
 
@@ -523,7 +526,8 @@ class OVTrackRoIHead(StandardRoIHead):
         else:
             bbox_pred = (None,) * len(proposals)
 
-        rcnn_test_cfg.score_thr = 1 / len(text_features) + 0.01
+        if self.dynamic_rcnn_thre:
+            rcnn_test_cfg.score_thr = (1 / len(text_features)) * 1.001
 
         # apply bbox post-processing to each image individually
         det_bboxes = []
