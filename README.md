@@ -32,6 +32,7 @@ Our method outperforms the states of the art on BDD100K, and TAO benchmarks.
 | TETer                                               | ResNet-101 | ImageNet-1K  | 33.3 | 51.6 | 35.0   | 13.2 | -                                                               | -                                                                                                  |                                                                                          
 | **OVTrack**                                         | ResNet-50  | ImageNet-1K  | 34.7 | 49.3 | 36.7   | 18.1 | [cfg](configs/ovtrack-teta/ovtrack_r50_no_dynamic_threshold.py) | [google drive](https://drive.google.com/file/d/1vDAFRmuNMCwhKtW7KHONpzkooLysU8nX/view?usp=sharing) |
 | **OVTrack** (dynmaic rcnn threshold )               | ResNet-50  | ImageNet-1K  | 36.2 | 53.8 | 37.3   | 17.4 | [cfg](configs/ovtrack-teta/ovtrack_r50.py)                      | [google drive](https://drive.google.com/file/d/1vDAFRmuNMCwhKtW7KHONpzkooLysU8nX/view?usp=sharing) | 
+
 **Note**: The result with dynmaic rcnn threshold is obtained by setting `model.roi_head.dynamic_rcnn_thre = True` in the config file. It dynamic adjusts rcnn score threshold based on the number of interested classes to track. Please note that the model is the same as the one without dynamic rcnn threshold. The only difference is the rcnn score threshold during inference.
 
 ### TAO benchmark
