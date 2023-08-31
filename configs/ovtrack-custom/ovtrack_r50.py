@@ -232,8 +232,8 @@ lr_config = dict(
     warmup_ratio=1.0 / 1000,
     step=[3, 5])
 total_epochs = 6
-load_from = 'saved_models/pretrained/clip_head.pth'
-evaluation = dict(metric=['track'], start=5, interval=1, resfile_path='/scratch/tmp/')
+load_from = 'saved_models/pretrained_models/ovtrack_clip_distillation.pth'
+evaluation = dict(metric=['track'], start=6, interval=1, resfile_path='/scratch/tmp/')
 
 checkpoint_config = dict(interval=1, create_symlink=False)
 log_config = dict(interval=50, hooks=[dict(type='TextLoggerHook')])

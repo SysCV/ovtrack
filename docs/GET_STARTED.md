@@ -38,7 +38,7 @@ Our folder structure follows
 
 ### 2. Install the TETA API
 
-For more details about the installation and usage of the TETA metric, please refer to [TETA](../teta/README.md).
+For more details about the installation and usage of the TETA metric, please refer to [TETA](https://github.com/SysCV/tet/tree/main/teta).
 
 
 
@@ -65,24 +65,25 @@ You can refer to the [offical instructions](https://github.com/open-mmlab/mmdete
 You can also refer to the short instructions below.
 We provide config files in [configs](../configs).
 
-### Train a model
+### Train OVTrack
 Coming soon, please stay tuned!
 #### CLIP distillation
 We follow the ViLD paper to distill the CLIP model. Specifically, we use the implementation from DetPro and also uses its pre-learned prompt. Please refer to [ViLD](https://arxiv.org/abs/2104.13921) and [DetPro](https://github.com/dyabel/detpro) for more details.
 You can download the pretrained distillation model from [here](https://drive.google.com/file/d/1XsBIBydGr1uqZQQu7NQ6eGYcmCNpYnDF/view?usp=sharing).
 
 #### Diffusion-based data generation
-*Train with generated images*: we upload the pre-generated images and corresponding annotations from static LVIS images [here](). Please download the files and put the json file (`ovtrack_lvis_generated_image_pairs_repeat_1.json`) in the `data/tao/annotations/diff_track` folder and the images (`ovtrack_lvis_generated_image_pairs_repeat_1.h5`) in the `data/tao/diff_track` folder. 
-You can visualize the generated images following the juptyer script [here]()
+*Train with generated images*: we upload the pre-generated images and corresponding annotations from static LVIS images. Please download the files and put the [json file](https://drive.google.com/file/d/14u-G3lEDGbGktmlZhMXkUeuVmjSFOHwH/view?usp=sharing) (`ovtrack_lvis_generated_image_pairs_repeat_1.json`) in the `data/tao/annotations/diff_track` folder and [the images](https://drive.google.com/file/d/1l_b7MaqNM0b1K886M9tEBXoneRVytVvi/view?usp=sharing) (`ovtrack_lvis_generated_image_pairs_repeat_1.h5`) in the `data/tao/diff_track` folder. 
+
+You can visualize the generated images following the juptyer script [here](../tools/notebook_scripts/visualize_generated_fake_images.ipynb)
 
 *Customize image generation*: Coming soon, please stay tuned!
 
 #### Train the tracker
 Please use following command to train the tracker from generated images pairs.
 ```angular2html
-
+tools/dist_train.sh configs/ovtrack-teta/ovtrack_r50.py 8 23333 --work-dir saved_models/ovtrack_train/ --cfg-options data.train.dataset.dataset.ref_img_sampler.pesudo=True
 ```
-### Test a Model with COCO-format
+### Test a model with COCO-format
 
 Note that, in this repo, the evaluation metrics are computed with COCO-format.
 But to report the results on BDD100K, evaluating with BDD100K-format is required.

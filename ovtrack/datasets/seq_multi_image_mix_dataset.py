@@ -5,7 +5,7 @@ from mmcv.utils import build_from_cfg
 from mmdet.datasets.builder import DATASETS, PIPELINES
 
 
-@DATASETS.register_module()
+@DATASETS.register_module(force=True)
 class SeqMultiImageMixDataset:
     """A wrapper of multiple images mixed dataset.
 
