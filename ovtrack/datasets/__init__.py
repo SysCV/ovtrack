@@ -26,4 +26,5 @@ __all__ = [
     "SeqDefaultFormatBundle",
     "SeqCollect",
     "TaoDataset",
+    "SeqMultiImageMixDataset"
 ]

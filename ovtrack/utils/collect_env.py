@@ -49,7 +49,6 @@ def collect_env():
     env_info["OpenCV"] = cv2.__version__
 
     env_info["MMCV"] = mmcv.__version__
-    env_info["ovtrack"] = ovtrack.__version__
 
     return env_info
 
