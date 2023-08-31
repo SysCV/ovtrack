@@ -72,11 +72,16 @@ We follow the ViLD paper to distill the CLIP model. Specifically, we use the imp
 You can download the pretrained distillation model from [here](https://drive.google.com/file/d/1XsBIBydGr1uqZQQu7NQ6eGYcmCNpYnDF/view?usp=sharing).
 
 #### Diffusion-based data generation
-Coming soon, please stay tuned!
-#### Train the track head 
-Coming soon, please stay tuned!
+*Train with generated images*: we upload the pre-generated images and corresponding annotations from static LVIS images [here](). Please download the files and put the json file (`ovtrack_lvis_generated_image_pairs_repeat_1.json`) in the `data/tao/annotations/diff_track` folder and the images (`ovtrack_lvis_generated_image_pairs_repeat_1.h5`) in the `data/tao/diff_track` folder. 
+You can visualize the generated images following the juptyer script [here]()
 
+*Customize image generation*: Coming soon, please stay tuned!
 
+#### Train the tracker
+Please use following command to train the tracker from generated images pairs.
+```angular2html
+
+```
 ### Test a Model with COCO-format
 
 Note that, in this repo, the evaluation metrics are computed with COCO-format.

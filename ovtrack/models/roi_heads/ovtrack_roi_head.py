@@ -255,6 +255,7 @@ class OVTrackRoIHead(StandardRoIHead):
         gt_labels,
         gt_match_indices,
         ref_x,
+        ref_img_metas,
         ref_proposals,
         ref_gt_bboxes,
         ref_gt_labels,
@@ -264,20 +265,20 @@ class OVTrackRoIHead(StandardRoIHead):
         *args,
         **kwargs
     ):
-        if not self.finetune_track:
-            losses = super().forward_train(
-                x,
-                img_metas,
-                proposal_list,
-                gt_bboxes,
-                gt_labels,
-                gt_bboxes_ignore,
-                gt_masks,
-                *args,
-                **kwargs
-            )
-        else:
-            losses = {}
+        # if not self.finetune_track:
+        #     losses = super().forward_train(
+        #         x,
+        #         img_metas,
+        #         proposal_list,
+        #         gt_bboxes,
+        #         gt_labels,
+        #         gt_bboxes_ignore,
+        #         gt_masks,
+        #         *args,
+        #         **kwargs
+        #     )
+        # else:
+        losses = {}
 
         num_imgs = len(img_metas)
 

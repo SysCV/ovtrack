@@ -9,7 +9,7 @@ import torch
 from mmcv import Config, DictAction
 from mmcv.runner import init_dist
 from mmdet.apis import set_random_seed
-from mmdet.datasets import build_dataset
+from ovtrack.datasets import build_dataset
 
 from ovtrack import __version__
 from ovtrack.utils import collect_env, get_root_logger

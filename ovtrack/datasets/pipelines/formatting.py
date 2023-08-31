@@ -1,3 +1,6 @@
+import torch
+import numpy as np
+from mmcv.parallel.data_container import DataContainer
 from mmcv.parallel import DataContainer as DC
 from mmdet.datasets.builder import PIPELINES
 from mmdet.datasets.pipelines import Collect, DefaultFormatBundle, to_tensor
