@@ -7,7 +7,6 @@ import torch
 import torchvision
 from collections import defaultdict
 
-import teter
 
 
 def collect_env():

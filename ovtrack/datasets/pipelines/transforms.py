@@ -1,5 +1,6 @@
 import copy
 import mmcv
+import cv2
 import numpy as np
 from mmdet.core import find_inside_bboxes
 from mmdet.datasets.builder import PIPELINES
