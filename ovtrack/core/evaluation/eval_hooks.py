@@ -18,7 +18,7 @@ class EvalHook(BaseEvalHook):
             hasattr(self.dataloader.dataset, "load_as_video")
             and self.dataloader.dataset.load_as_video
         ):
-            from teter.apis import single_gpu_test
+            from ovtrack.apis import single_gpu_test
         else:
             from mmdet.apis import single_gpu_test
         results = single_gpu_test(runner.model, self.dataloader, show=False)
@@ -57,7 +57,7 @@ class DistEvalHook(BaseDistEvalHook):
             hasattr(self.dataloader.dataset, "load_as_video")
             and self.dataloader.dataset.load_as_video
         ):
-            from teter.apis import multi_gpu_test
+            from ovtrack.apis import multi_gpu_test
         else:
             from mmdet.apis import multi_gpu_test
         results = multi_gpu_test(

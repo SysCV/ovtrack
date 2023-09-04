@@ -4,7 +4,7 @@ import torch.nn as nn
 from mmcv.cnn import ConvModule
 from mmdet.models import HEADS, build_loss
 
-from teter.core import cal_similarity
+from ovtrack.core import cal_similarity
 
 
 @HEADS.register_module(force=True)

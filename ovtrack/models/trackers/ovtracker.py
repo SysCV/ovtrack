@@ -10,7 +10,7 @@ from mmcv.image import imread, imwrite
 from mmcv.visualization import color_val, imshow
 from mmdet.core import bbox_overlaps
 
-from teter.core import cal_similarity
+from ovtrack.core import cal_similarity
 from ..builder import TRACKERS
 
 

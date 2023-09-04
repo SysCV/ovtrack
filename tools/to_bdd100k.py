@@ -4,7 +4,7 @@ import os
 import mmcv
 from mmcv import Config, DictAction
 from mmdet.datasets import build_dataset
-from teter.core.to_bdd100k import preds2bdd100k
+from ovtrack.core.to_bdd100k import preds2bdd100k
 
 
 def parse_args():
@@ -53,7 +53,7 @@ def main():
     if cfg.get('USE_MMDET', False):
         from mmdet.datasets import build_dataloader
     else:
-        from teter.datasets import build_dataloader
+        from ovtrack.datasets import build_dataloader
 
     # build the dataloader
     cfg.data.test.test_mode = True
