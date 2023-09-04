@@ -50,10 +50,6 @@ def main():
     if args.cfg_options is not None:
         cfg.merge_from_dict(args.cfg_options)
 
-    if cfg.get('USE_MMDET', False):
-        from mmdet.datasets import build_dataloader
-    else:
-        from ovtrack.datasets import build_dataloader
 
     # build the dataloader
     cfg.data.test.test_mode = True
