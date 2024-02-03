@@ -34,7 +34,7 @@ do
     --total_p ${total_p} \
     --repeat_run 1 \
     --delta 0.75 \
-    --coco_json ./data/lvis/annotations/lvisv1_coco_10_base.json \
+    --coco_json ./data/lvis/annotations/lvis_v1_train+coco_mask_v1_base.json \
     --h5_img ./data/lvis/train_imgs.hdf5 \
     --cap_json ./data/lvis/annotations/captions_train2017.json \
     --h5_out ${default_save_dir}/${h5_folder_name}/${h5_folder_name}_total_p_${total_p}_split_${i}.h5 \
