@@ -87,14 +87,14 @@ class L2Loss(nn.Module):
 
         num_pos = int((target == 1).sum())
         num_neg = int((target == 0).sum())
-        if self.neg_pos_ub > 0 and num_neg / num_pos > self.neg_pos_ub:
+        if self.neg_pos_ub > 0 and ((num_pos == 0 ) or (num_neg / num_pos > self.neg_pos_ub)):
             num_neg = num_pos * self.neg_pos_ub
             neg_idx = torch.nonzero(target == 0, as_tuple=False)
 
             if self.hard_mining:
-                costs = l2_loss(pred, target, reduction="none")[
-                    neg_idx[:, 0], neg_idx[:, 1]
-                ].detach()
+                costs = l2_loss(
+                    pred, target, reduction='none')[neg_idx[:, 0],
+                                                    neg_idx[:, 1]].detach()
                 neg_idx = neg_idx[costs.topk(num_neg)[1], :]
             else:
                 neg_idx = self.random_choice(neg_idx, num_neg)

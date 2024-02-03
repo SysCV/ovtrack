@@ -1,14 +1,15 @@
 import argparse
 import os
-
+import os.path as osp
+import time
 import mmcv
 import torch
 from mmcv import Config, DictAction
 from mmcv.cnn import fuse_conv_bn
 from mmcv.parallel import MMDataParallel, MMDistributedDataParallel
 from mmcv.runner import get_dist_info, init_dist, load_checkpoint
-# from mmdet.core import wrap_fp16_model
 from mmdet.datasets import build_dataset
+from ovtrack.utils import collect_env, get_root_logger
 
 def parse_args():
     parser = argparse.ArgumentParser(description='ovtrack test model')
@@ -83,6 +84,10 @@ def main():
     if args.cfg_options is not None:
         cfg.merge_from_dict(args.cfg_options)
 
+    if args.work_dir is not None:
+        # update configs according to CLI args if args.work_dir is not None
+        cfg.work_dir = args.work_dir
+
     if cfg.get('USE_MMDET', False):
         from mmdet.apis import multi_gpu_test, single_gpu_test
         from mmdet.models import build_detector as build_model
@@ -105,6 +110,23 @@ def main():
         distributed = True
         init_dist(args.launcher, **cfg.dist_params)
 
+    #### add logging for the test #########
+    timestamp = time.strftime('%Y%m%d_%H%M%S', time.localtime())
+    log_file = osp.join(cfg.work_dir, f'test_{timestamp}.log')
+    logger = get_root_logger(log_file=log_file, log_level=cfg.log_level)
+    meta = dict()
+    # log env info
+    env_info_dict = collect_env()
+    env_info = '\n'.join([(f'{k}: {v}') for k, v in env_info_dict.items()])
+    dash_line = '-' * 60 + '\n'
+    logger.info('Environment info:\n' + dash_line + env_info + '\n' +
+          dash_line)
+    meta['env_info'] = env_info
+
+    # log some basic info
+    logger.info(f'Distributed training: {distributed}')
+    logger.info(f'Config:\n{cfg.pretty_text}')
+
     # build the dataloader
     dataset = build_dataset(cfg.data.test)
     data_loader = build_dataloader(
@@ -123,7 +145,6 @@ def main():
 
     if args.fuse_conv_bn:
         model = fuse_conv_bn(model)
-
 
     model.CLASSES = dataset.CLASSES
 

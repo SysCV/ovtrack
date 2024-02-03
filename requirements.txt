@@ -1,8 +1,13 @@
 lvis
 motmetrics
-numpy
 pycocotools
 seaborn
 tqdm
 h5py
-git+git://github.com/bdd100k/bdd100k.git
+seaborn
+timm
+h5py
+einops
+ftfy
+Regex
+numpy==1.21.1
