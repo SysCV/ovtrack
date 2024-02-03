@@ -12,9 +12,9 @@ IMG_PATH = 'data/lvis/train2017/'
 LVIS_PATH = 'data/lvis/annotations/lvis_v1_train.json'
 NO_SEG = False
 if NO_SEG:
-    SAVE_PATH = 'data/lvis/annotations/lvis_v1_train+coco_box.json'
+    SAVE_PATH = 'data/lvis/annotations/lvis_v1_train+coco_box_v1.json'
 else:
-    SAVE_PATH = 'data/lvis/annotations/lvis_v1_train+coco_mask.json'
+    SAVE_PATH = 'data/lvis/annotations/lvis_v1_train+coco_mask_v1.json'
 THRESH = 0.7
 DEBUG = False
 

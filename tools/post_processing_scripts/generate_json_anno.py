@@ -169,7 +169,7 @@ def main(h5_folder_name, coco_lvis_path, repeat_num, default_save_dir):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Merge the generated hdf5 image partitions.')
     parser.add_argument('--h5_folder_name', type=str, default='The folder name which saves the generated partitions', help='H5 folder name')
-    parser.add_argument('--coco_lvis_path', type=str, default='data/lvis/annotations/lvisv1_coco_10_base.json', help='Path to the the merged coco-lvis json')
+    parser.add_argument('--coco_lvis_path', type=str, default='data/lvis/annotations/lvis_v1_train+coco_mask_v1_base.json', help='Path to the the merged coco-lvis json')
     parser.add_argument('--default_save_dir', type=str, default="./data/tao/ovtrack/" , help='Default save directory for hdf5 partition folders and final .pkl and .h5 files. ')
     parser.add_argument('--repeat_num', type=int, default=1, help='Repeat number')
 

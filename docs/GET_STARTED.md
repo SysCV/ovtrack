@@ -16,6 +16,16 @@ b. Please also prepare the [LVIS dataset](https://www.lvisdataset.org/).
 
 c. Please download coco annotations and put them in `data/lvis/annotations/`. You can download the annotations from [here](http://images.cocodataset.org/annotations/annotations_trainval2017.zip). 
 
+d. To properly compare with previous methods on TAO, we need to merge LVIS and COCO annotations following original TAO instructions.
+You can directly download the merged LVIS and COCO annotations for base classes from [here](https://drive.google.com/file/d/1l9TcTAihBO9408k7EciecJ-p9QTw1X4N/view?usp=drive_link).
+If you want to generate it by yourself, you can also use the following command to merge the LVIS and COCO annotations (we use the script from [GTR](https://github.com/xingyizhou/GTR)):
+```shell
+python tools/convert_datasets/merge_lvisv1_coco.py
+```
+Remove the novel classes and annotations.
+```shell
+python tools/convert_datasets/create_base_lvis.py
+```
 
 It is recommended to symlink the dataset root to `$OVTrack/data`, and the model root to `$OVTrack/saved_models`.
 
