@@ -1,4 +1,5 @@
-# OVTrack: Open-Vocabulary Multiple Object Tracking [CVPR 2023]
+# OVTrack: Open-Vocabulary Multiple Object Tracking (CVPR 2023)
+### [paper](https://openaccess.thecvf.com/content/CVPR2023/papers/Li_OVTrack_Open-Vocabulary_Multiple_Object_Tracking_CVPR_2023_paper.pdf) | [project page](https://www.vis.xyz/pub/ovtrack/)
 
 ## Abstract
 

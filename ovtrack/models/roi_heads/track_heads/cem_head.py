@@ -1,5 +1,3 @@
-import numpy as np
-import torch
 import torch.nn as nn
 from mmcv.cnn import ConvModule
 from mmdet.models import HEADS, build_loss

@@ -235,14 +235,14 @@ data = dict(
                 type=dataset_type,
                 classes='data/lvis/annotations/lvis_classes_v1.txt',
                 load_as_video=True,
-                ann_file='data/tao/annotations/diff_track/ovtrack_lvis_generated_image_pairs_repeat_1.json',
+                ann_file='data/tao/annotations/ovtrack/ovtrack_lvis_generated_image_pairs_repeat_1.json',
                 key_img_sampler=dict(interval=1),
                 ref_img_sampler=dict(num_ref_imgs=1, scope=1, method='uniform', pesudo=True),
                 pipeline=[
                     dict(
                         type='LoadMultiImagesFromFile',
                         file_client_args=dict(
-                            img_db_path='data/tao/diff_track/ovtrack_lvis_generated_image_pairs_repeat_1.h5',
+                            img_db_path='data/tao/ovtrack/ovtrack_lvis_generated_image_pairs_repeat_1.h5',
                             backend='hdf5',
                             type='lvis')),
                     dict(type='SeqLoadAnnotations', with_bbox=True, with_ins_id=True),
