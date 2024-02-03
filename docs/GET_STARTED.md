@@ -14,7 +14,11 @@ a. Please follow [TAO download](https://github.com/TAO-Dataset/tao/blob/master/d
 
 b. Please also prepare the [LVIS dataset](https://www.lvisdataset.org/).
 
-It is recommended to symlink the dataset root to `$OVTrack/data`.
+c. Please download coco annotations and put them in `data/lvis/annotations/`. You can download the annotations from [here](http://images.cocodataset.org/annotations/annotations_trainval2017.zip). 
+
+
+It is recommended to symlink the dataset root to `$OVTrack/data`, and the model root to `$OVTrack/saved_models`.
+
 
 If your folder structure is different, you may need to change the corresponding paths in config files.
 
@@ -31,10 +35,16 @@ Our folder structure follows
             ├── val
             ├── test
         ├── annotations
+            ├── ovtrack # this is the folder to save the generated json annotations.
+        |── ovtrack  # this is the folder to save the generated images and pkl annotations.
     ├── lvis
         ├── train2017
-        ├── annotations    
+        ├── annotations 
+        
+|── saved_models # saved_models are the folder to save downloaded pretrained models and also the models you trained.
+   
 ```
+It will be easier if you create the same folder structure.
 
 ### 2. Install the TETA API
 
@@ -66,17 +76,17 @@ You can also refer to the short instructions below.
 We provide config files in [configs](../configs).
 
 ### Train OVTrack
-Coming soon, please stay tuned!
+
 #### CLIP distillation
 We follow the ViLD paper to distill the CLIP model. Specifically, we use the implementation from DetPro and also uses its pre-learned prompt. Please refer to [ViLD](https://arxiv.org/abs/2104.13921) and [DetPro](https://github.com/dyabel/detpro) for more details.
 You can download the pretrained distillation model from [here](https://drive.google.com/file/d/1XsBIBydGr1uqZQQu7NQ6eGYcmCNpYnDF/view?usp=sharing).
 
 #### Diffusion-based data generation
-*Train with generated images*: we upload the pre-generated images and corresponding annotations from static LVIS images. Please download the files and put the [json file](https://drive.google.com/file/d/14u-G3lEDGbGktmlZhMXkUeuVmjSFOHwH/view?usp=sharing) (`ovtrack_lvis_generated_image_pairs_repeat_1.json`) in the `data/tao/annotations/diff_track` folder and [the images](https://drive.google.com/file/d/1l_b7MaqNM0b1K886M9tEBXoneRVytVvi/view?usp=sharing) (`ovtrack_lvis_generated_image_pairs_repeat_1.h5`) in the `data/tao/diff_track` folder. 
+*Train with generated images*: we upload the pre-generated images and corresponding annotations from static LVIS images. Please download the files and put the [json file](https://drive.google.com/file/d/14u-G3lEDGbGktmlZhMXkUeuVmjSFOHwH/view?usp=sharing) (`ovtrack_lvis_generated_image_pairs_repeat_1.json`) in the `data/tao/annotations/ovtrack` folder and [the images](https://drive.google.com/file/d/1l_b7MaqNM0b1K886M9tEBXoneRVytVvi/view?usp=sharing) (`ovtrack_lvis_generated_image_pairs_repeat_1.h5`) in the `data/tao/ovtrack` folder. 
 
 You can visualize the generated images following the juptyer script [here](../tools/notebook_scripts/visualize_generated_fake_images.ipynb)
 
-*Customize image generation*: Coming soon, please stay tuned!
+*Customize image generation*: Please refer to the instructions [here](./OVTRACK_GEN.md)
 
 #### Train the tracker
 Please use following command to train the tracker from generated images pairs.
