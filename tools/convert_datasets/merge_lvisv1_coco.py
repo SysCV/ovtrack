@@ -73,7 +73,6 @@ COCO_SYNSET_CATEGORIES = [
     {"synset": "orange.n.01", "coco_cat_id": 55},
     {"synset": "broccoli.n.01", "coco_cat_id": 56},
     {"synset": "carrot.n.01", "coco_cat_id": 57},
-    # {"synset": "frank.n.02", "coco_cat_id": 58},
     {"synset": "sausage.n.01", "coco_cat_id": 58},
     {"synset": "pizza.n.01", "coco_cat_id": 59},
     {"synset": "doughnut.n.02", "coco_cat_id": 60},
