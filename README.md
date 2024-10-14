@@ -4,6 +4,9 @@
 ## News and Updates
 - 2024.09: Update a repo [TETA](https://github.com/siyuanliii/TETA) to make  Open-vocabulary MOT benchmark evaluation easier!
 
+## Evaluate your tracker on open-vocabulary MOT benchmark
+If you want to compare with OVTrack and evaluate your own tracker's results on TAO TETA benchmark, Open-vocabulary MOT benchmark and BDD100K MOT and MOTS benchmarks. Please refer to the [TETA repo](https://github.com/siyuanliii/TETA) for quick evaluation. 
+
 ## Abstract
 
 The ability to recognize, localize and track dynamic objects in a scene is fundamental to many real-world applications, such as self-driving and robotic systems. 
@@ -25,9 +28,6 @@ We approach the task of open-vocabulary multiple object tracking. During trainin
 ## Discriminative VL model
 <img src="figures/inference_pipeline.png" width="800">
 
-
-## Evaluate your tracker on open-vocabulary MOT benchmark
-If you want to compare with OVTrack and evaluate your own tracker's results on TAO TETA benchmark, Open-vocabulary MOT benchmark and BDD100K MOT and MOTS benchmarks. Please refer to the [TETA repo](https://github.com/siyuanliii/TETA) for quick evaluation. 
 
 ## Main results
 Our method outperforms the states of the art on BDD100K, and TAO benchmarks.
